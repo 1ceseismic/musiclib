@@ -1,0 +1,36 @@
+services:
+  navidrome:
+    image: deluan/navidrome:latest
+    restart: unless-stopped
+    ports:
+      - "4533:4533"
+    environment:
+      ND_SCANSCHEDULE: "0"          # we trigger scans via API
+      ND_LOGLEVEL: info
+      ND_MUSICFOLDER: /music
+    volumes:
+      - ./data/navidrome:/data
+      - music:/music
+
+  orchestrator:
+    build:
+      context: .
+      dockerfile: orchestrator/Dockerfile
+    restart: unless-stopped
+    # Run an init (tini) as PID 1 so supercronic isn't PID 1 — otherwise it
+    # tries to enable process-reaping/re-exec and crashes ("Failed to fork exec").
+    init: true
+    depends_on:
+      - navidrome
+    environment:
+      NAVIDROME_USER: ${NAVIDROME_USER}
+      NAVIDROME_PASSWORD: ${NAVIDROME_PASSWORD}
+      STATE_DIR: /state
+    volumes:
+      - music:/music
+      - state:/state
+      - ./playlists.txt:/app/playlists.txt:ro
+
+volumes:
+  music:
+  state:

@@ -1,0 +1,22 @@
+# Secrets & local state — never commit
+.env
+state/
+*.spotdl
+.spotify_cache
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+
+# Media (never track audio)
+music/
+
+# Personal playlist list (URLs are personal, not secret)
+playlists.txt
+
+# Navidrome local data (created by docker compose)
+data/

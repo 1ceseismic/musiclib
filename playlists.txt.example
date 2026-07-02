@@ -1,0 +1,5 @@
+# One PUBLIC Spotify playlist URL per line. Blank lines and #-comments are ignored.
+# Make each playlist Public in Spotify first (Share > the link must open without login).
+# Copy this file to playlists.txt and edit:
+#   cp playlists.txt.example playlists.txt
+https://open.spotify.com/playlist/37i9dQZF1DXcBWIGoYBM5M

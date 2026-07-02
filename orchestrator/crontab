@@ -1,0 +1,1 @@
+30 3 * * * musiclib --config /app/config.yaml --apply

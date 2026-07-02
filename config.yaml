@@ -1,0 +1,9 @@
+# Non-secret preferences. Secrets live in .env (see .env.example).
+navidrome_url: http://navidrome:4533
+music_dir: /music
+state_dir: /state
+audio_format: m4a
+scan_timeout_s: 300
+log_level: INFO
+# File listing public Spotify playlist URLs (one per line). Mounted into the container.
+playlists_file: /app/playlists.txt
