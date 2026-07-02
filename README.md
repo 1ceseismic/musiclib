@@ -1,4 +1,4 @@
-# musiclib: public Spotify playlists → iOS offline sync
+# musiclib: public Spotify playlists -> iOS offline sync
 
 Self-hosted pipeline that mirrors public Spotify playlists into Navidrome as
 native playlists for 100% offline playback via a Subsonic app (Substreamer) on
@@ -12,13 +12,13 @@ building/rebuilding the stack from scratch.
 ## How it works
 
 ```
-playlists.txt ──► orchestrator ──► downloads M4A/AAC ──► /music volume
+playlists.txt ──> orchestrator ──> downloads M4A/AAC ──> /music volume
 (public URLs)          │
-                       └──► Navidrome playlists (port 4533)
+                       └──> Navidrome playlists (port 4533)
                                     │
                              Tailscale tunnel
                                     │
-                          Substreamer (iOS) ──► offline cache
+                          Substreamer (iOS) ──> offline cache
 ```
 
 The orchestrator reads public Spotify playlist URLs from `playlists.txt`,

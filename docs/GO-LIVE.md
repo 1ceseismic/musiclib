@@ -15,13 +15,13 @@ cp .env.example .env       # set NAVIDROME_USER / NAVIDROME_PASSWORD
 ```
 
 ## 3. Start Navidrome + create admin
-`docker compose up -d navidrome` → open http://localhost:4533 → create admin matching .env.
+`docker compose up -d navidrome` -> open http://localhost:4533 -> create admin matching .env.
 
 ## 4. Build
 `docker compose build orchestrator`
 
 ## 5. Dry run (default, writes nothing)
-`docker compose run --rm orchestrator musiclib` → review `/state/unmatched.log`.
+`docker compose run --rm orchestrator musiclib` -> review `/state/unmatched.log`.
 
 ## 6. Apply
 `docker compose run --rm orchestrator musiclib --apply`
@@ -39,10 +39,10 @@ tailscale ip -4      # note this address
 ## 9. iPhone (Substreamer)
 - Install **Substreamer** + **Tailscale** (sign into the same tailnet, toggle on).
 - Add server: URL `http://<tailnet-ip>:4533`, your Navidrome user/pass, Legacy Auth off.
-- **Settings → Playback:** Stream Format = **Original**, Download Format = **Original**
+- **Settings -> Playback:** Stream Format = **Original**, Download Format = **Original**
   (else it transcodes to Opus, which iOS can't play).
-- **Playlists** tab → pick a playlist → **Set available offline**. New playlists
-  not showing → pull-to-refresh (clear metadata cache if stubborn).
+- **Playlists** tab -> pick a playlist -> **Set available offline**. New playlists
+  not showing -> pull-to-refresh (clear metadata cache if stubborn).
 
 ---
 

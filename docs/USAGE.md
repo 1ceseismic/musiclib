@@ -2,11 +2,11 @@
 
 ## TL;DR: all updates in 3 moves
 
-1. **New playlist** → `madd "<public spotify url>"` (downloads + builds it).
-2. **Updates to playlists you already added** → nothing; the nightly 03:30 sync
-   pulls adds/removes/reorders automatically. Want them now? → `msync`.
-3. **Get any of it onto the phone** → Substreamer: Tailscale **on** → open the
-   playlist → **pull-to-refresh** → **Set available offline**.
+1. **New playlist** -> `madd "<public spotify url>"` (downloads + builds it).
+2. **Updates to playlists you already added** -> nothing; the nightly 03:30 sync
+   pulls adds/removes/reorders automatically. Want them now? -> `msync`.
+3. **Get any of it onto the phone** -> Substreamer: Tailscale **on** -> open the
+   playlist -> **pull-to-refresh** -> **Set available offline**.
 
 `madd` = add new · `msync` = update everything now · Substreamer refresh +
 download = the only phone step (and the only way updates reach your device).
@@ -46,12 +46,12 @@ the scripts in `scripts/`.)
   in to your Tailscale account, toggle **on** (needed to reach the server).
 - Add server: URL `http://<server-ip>:4533`, user `<user>`, pass `<password>`,
   Legacy Auth off.
-- **Settings → Playback:** Stream Format = **Original**, Download Format =
+- **Settings -> Playback:** Stream Format = **Original**, Download Format =
   **Original**, Max Bitrate = unlimited. *(Critical: otherwise Navidrome
   transcodes to Opus, which iOS can't play.)*
-- Download: **Playlists** tab → playlist → **Set available offline**.
+- Download: **Playlists** tab -> playlist -> **Set available offline**.
 - New playlists not showing? **Pull-to-refresh** the Playlists list; if stubborn,
-  Settings → clear **metadata cache**, reopen.
+  Settings -> clear **metadata cache**, reopen.
 - Offline playback needs **no network**. Tailscale is only needed while
   downloading; leave it off otherwise.
 
@@ -63,7 +63,7 @@ the scripts in `scripts/`.)
 - **Sync state:** `state` volume (`playlists.json`, `*.spotdl`, `unmatched.log`).
 
 ## Troubleshooting
-- Substreamer "connection appears offline" → Tailscale isn't on, or you're
+- Substreamer "connection appears offline" -> Tailscale isn't on, or you're
   signed into the wrong account.
 - Stack control on the server: `docker compose ps` / `up -d` / `logs -f orchestrator`.
 - Disable Tailscale **key expiry** per device (admin console) so nothing drops
