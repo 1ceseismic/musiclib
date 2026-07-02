@@ -1,24 +1,23 @@
-# musiclib: public Spotify playlists -> iOS offline sync
+# musiclib: public Spotify playlists to iOS offline sync
 
 Self-hosted pipeline that mirrors public Spotify playlists into Navidrome as
-native playlists for 100% offline playback via a Subsonic app (Substreamer) on
-iOS. Uses spotDL's unauthenticated mode; no Spotify API account or
-subscription required.
+native playlists for offline playback via a Subsonic app (Substreamer) on
+iOS. Uses spotDL's unauthenticated mode; no spotify API acc /
+subscription required
 
-**Already running?** For day-to-day use (sync commands, adding music, the
-phone), see **[docs/USAGE.md](docs/USAGE.md)**. The rest of this file is for
-building/rebuilding the stack from scratch.
+day-to-day use (sync commands, adding music, the
+phone), see **[docs/USAGE.md](docs/USAGE.md)**
 
 ## How it works
 
 ```
-playlists.txt ──> orchestrator ──> downloads M4A/AAC ──> /music volume
+playlists.txt ──► orchestrator ──► downloads M4A/AAC ──► /music volume
 (public URLs)          │
-                       └──> Navidrome playlists (port 4533)
+                       └──► Navidrome playlists (port 4533)
                                     │
                              Tailscale tunnel
                                     │
-                          Substreamer (iOS) ──> offline cache
+                          Substreamer (iOS) ──► offline cache
 ```
 
 The orchestrator reads public Spotify playlist URLs from `playlists.txt`,
@@ -29,14 +28,14 @@ auto-derived from the Spotify playlist. State (save files, `playlists.json`,
 non-secret preferences in `config.yaml`. The daily sync runs at 03:30 via the
 container's built-in cron.
 
-## Prerequisites
+## requirements
 
-- Docker with Compose v2
-- Public Spotify playlist URLs (make playlists Public in Spotify; copy their
-  links). Personalized playlists like Discover Weekly/Daily Mix can't be synced.
-- Tailscale on the host + your phone, for remote access.
+- docker (compose v2)
+- spotify playlist(s) must be public
+    - Personalized playlists like daily mixes are inelligible
+- Tailscale on the host + your phone, ( if u want remote syncing i.e LAN-only hosting) 
 
-## Quick start
+## quick start
 
 1. Copy and fill in Navidrome credentials:
    ```
@@ -98,7 +97,7 @@ musiclib [--config PATH] [--apply] [--dry-run]
 Default behaviour (no flags) is dry-run: safe to run at any time, no changes
 written.
 
-## See also
+## see also
 
 - **[docs/USAGE.md](docs/USAGE.md)**: daily operation (sync commands, adding
   music, iPhone/Substreamer setup, troubleshooting)
