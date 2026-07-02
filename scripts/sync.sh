@@ -18,7 +18,7 @@ priority_ids=("$@")
 exec 9>"$LOCK"
 if ! flock -n 9; then
   : > "$PENDING"
-  echo "A sync is already running — queued a follow-up for your changes." >&2
+  echo "A sync is already running. Queued a follow-up for your changes." >&2
   exit 0
 fi
 
@@ -32,5 +32,5 @@ while : ; do
   first=0
   docker compose run --rm orchestrator musiclib "${args[@]}"
   [ -f "$PENDING" ] || break
-  echo ">>> changes were queued during the sync — running a full sync to pick them up..."
+  echo ">>> changes were queued during the sync. Running a full sync to pick them up..."
 done

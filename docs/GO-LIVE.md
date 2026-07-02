@@ -1,6 +1,6 @@
-# Go Live — Setup Checklist
+# Go Live: Setup Checklist
 
-Terse runbook for building the stack from scratch (e.g. on a new box / Pi).
+Runbook for building the stack from scratch (e.g. on a new box / Pi).
 **Already running? Daily use is in [USAGE.md](USAGE.md).** Prereqs: Docker + Compose.
 
 ## 1. Playlists (no Spotify login)

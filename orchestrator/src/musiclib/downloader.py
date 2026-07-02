@@ -18,8 +18,8 @@ class DownloadResult:
 
 
 def _stream_run(cmd: list[str]) -> tuple[int, str]:
-    """Run cmd, streaming combined stdout/stderr to our stdout live (so progress
-    shows up in logs as it happens) while also capturing it for the result."""
+    """Run cmd, streaming combined stdout/stderr to stdout live (so progress
+    appears in logs) while capturing it for the result."""
     proc = subprocess.Popen(
         cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1
     )

@@ -13,7 +13,7 @@ PENDING="/tmp/musiclib-sync.pending"
 
 if ! flock -n "$LOCK" true 2>/dev/null; then
   : > "$PENDING"
-  echo "A sync is already running on $(hostname) — your changes are queued and"
+  echo "A sync is already running on $(hostname). Your changes are queued and"
   echo "will sync automatically right after it finishes."
   echo "Watch:  mlog"
   exit 0
@@ -24,5 +24,5 @@ fi
 # IDs to prioritise) are forwarded to sync.sh.
 nohup "$DIR/sync.sh" "$@" > "$LOG" 2>&1 < /dev/null &
 
-echo "Sync started in background on $(hostname) — safe to close this terminal."
+echo "Sync started in background on $(hostname). Safe to close this terminal."
 echo "Watch progress:  mlog   (or: ssh $(hostname) tail -f $LOG)"

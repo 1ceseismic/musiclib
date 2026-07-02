@@ -1,8 +1,8 @@
-# musiclib — public Spotify playlists → iOS offline sync
+# musiclib: public Spotify playlists → iOS offline sync
 
 Self-hosted pipeline that mirrors public Spotify playlists into Navidrome as
 native playlists for 100% offline playback via a Subsonic app (Substreamer) on
-iOS. Uses spotDL's unauthenticated mode — no Spotify API account or
+iOS. Uses spotDL's unauthenticated mode; no Spotify API account or
 subscription required.
 
 **Already running?** For day-to-day use (sync commands, adding music, the
@@ -64,7 +64,7 @@ container's built-in cron.
    docker compose build orchestrator
    ```
 
-5. First run in safe **dry-run** mode (default — writes no playlists):
+5. First run in **dry-run** mode (the default; writes no playlists):
    ```
    docker compose run --rm orchestrator musiclib
    ```
@@ -100,6 +100,6 @@ written.
 
 ## See also
 
-- **[docs/USAGE.md](docs/USAGE.md)** — daily operation: sync commands, adding
-  music, iPhone (Substreamer) setup, troubleshooting
-- [docs/GO-LIVE.md](docs/GO-LIVE.md) — terse from-scratch / rebuild runbook
+- **[docs/USAGE.md](docs/USAGE.md)**: daily operation (sync commands, adding
+  music, iPhone/Substreamer setup, troubleshooting)
+- [docs/GO-LIVE.md](docs/GO-LIVE.md): from-scratch / rebuild runbook

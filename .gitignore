@@ -1,4 +1,4 @@
-# Secrets & local state — never commit
+# Secrets & local state, never commit
 .env
 state/
 *.spotdl

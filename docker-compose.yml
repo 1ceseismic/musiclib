@@ -17,8 +17,8 @@ services:
       context: .
       dockerfile: orchestrator/Dockerfile
     restart: unless-stopped
-    # Run an init (tini) as PID 1 so supercronic isn't PID 1 — otherwise it
-    # tries to enable process-reaping/re-exec and crashes ("Failed to fork exec").
+    # Run an init (tini) as PID 1. As PID 1, supercronic enables
+    # process-reaping/re-exec and crashes ("Failed to fork exec").
     init: true
     depends_on:
       - navidrome

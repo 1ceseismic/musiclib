@@ -28,7 +28,7 @@ for raw in "${urls[@]}"; do
 done
 
 if [ "${#new_ids[@]}" -eq 0 ]; then
-  echo "Nothing new to add — not syncing."
+  echo "Nothing new to add. Not syncing."
   exit 0
 fi
 

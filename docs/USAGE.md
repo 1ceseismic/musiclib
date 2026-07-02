@@ -1,6 +1,6 @@
-# musiclib — daily usage
+# musiclib: daily usage
 
-## TL;DR — how to get ALL updates (3 moves)
+## TL;DR: all updates in 3 moves
 
 1. **New playlist** → `madd "<public spotify url>"` (downloads + builds it).
 2. **Updates to playlists you already added** → nothing; the nightly 03:30 sync
@@ -13,23 +13,23 @@ download = the only phone step (and the only way updates reach your device).
 
 ---
 
-The stack runs on your server (referred to below as `<server>`). If the server
-isn't on your home network, reach it over **Tailscale** (or your own VPN).
+The stack runs on your server (`<server>` below). If the server isn't on your
+home network, reach it over **Tailscale** (or your own VPN).
 
 ## Facts
-- **Server (Navidrome):** `http://<server-ip>:4533` — login `<user>` / `<password>`
+- **Server (Navidrome):** `http://<server-ip>:4533`, login `<user>` / `<password>`
   (set in `.env` next to `docker-compose.yml`).
 - **Tailscale is required** to reach `<server>` from outside its network. A LAN
   address (`http://<lan-ip>:4533`) only works for devices on the same network.
 - Auto-sync runs **daily at 03:30**. Manual sync via the commands below.
 
 ## Commands (run from your PC; they drive `<server>` over SSH)
-- `msync` — sync now: download new/changed tracks + rebuild Navidrome playlists.
-  Runs **detached** on the server, so it's safe to close the terminal.
-- `madd "<url>"` — add a public Spotify playlist URL, then sync.
-- `mlog` — watch the live sync log (Ctrl-C stops watching; the sync keeps going).
+- `msync`: sync now (download new/changed tracks + rebuild Navidrome playlists).
+  Runs **detached** on the server; safe to close the terminal.
+- `madd "<url>"`: add a public Spotify playlist URL, then sync.
+- `mlog`: watch the live sync log (Ctrl-C stops watching; the sync keeps going).
 
-Only one sync runs at a time; a second `msync` just says "already running".
+Only one sync runs at a time; a second `msync` reports "already running".
 (Define these as small wrappers in `~/.local/bin/`; they `ssh <server>` and call
 the scripts in `scripts/`.)
 
@@ -47,7 +47,7 @@ the scripts in `scripts/`.)
 - Add server: URL `http://<server-ip>:4533`, user `<user>`, pass `<password>`,
   Legacy Auth off.
 - **Settings → Playback:** Stream Format = **Original**, Download Format =
-  **Original**, Max Bitrate = unlimited. *(Critical — otherwise Navidrome
+  **Original**, Max Bitrate = unlimited. *(Critical: otherwise Navidrome
   transcodes to Opus, which iOS can't play.)*
 - Download: **Playlists** tab → playlist → **Set available offline**.
 - New playlists not showing? **Pull-to-refresh** the Playlists list; if stubborn,
